@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/vue';
-import { Notification } from '../index';
+import { NotificationPopup } from '../index';
 
 describe('Notification', () => {
   test('renders notification when visible is true', () => {
-    render(Notification, {
+    render(NotificationPopup, {
       props: {
         message: 'Test notification',
         visible: true
@@ -15,7 +15,7 @@ describe('Notification', () => {
   });
 
   test('does not render notification when visible is false', () => {
-    render(Notification, {
+    render(NotificationPopup, {
       props: {
         message: 'Test notification',
         visible: false
@@ -26,7 +26,7 @@ describe('Notification', () => {
   });
 
   test('renders with success styling by default', () => {
-    render(Notification, {
+    render(NotificationPopup, {
       props: {
         message: 'Success message',
         visible: true
@@ -39,7 +39,7 @@ describe('Notification', () => {
   });
 
   test('renders with error styling when type is error', () => {
-    render(Notification, {
+    render(NotificationPopup, {
       props: {
         message: 'Error message',
         visible: true,
@@ -53,7 +53,7 @@ describe('Notification', () => {
   });
 
   test('renders with success styling when type is success', () => {
-    render(Notification, {
+    render(NotificationPopup, {
       props: {
         message: 'Success message',
         visible: true,

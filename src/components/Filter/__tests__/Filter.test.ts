@@ -2,12 +2,12 @@ import { describe, expect, test, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import { createPinia } from 'pinia';
-import { Filter } from '../index';
+import { FilterButtons } from '../index';
 import { useFilterStore } from '@/stores/useFilterStore';
 
 const renderComponent = () => {
   const pinia = createPinia();
-  return render(Filter, {
+  return render(FilterButtons, {
     global: {
       plugins: [pinia]
     }
@@ -41,7 +41,7 @@ describe('Filter', () => {
     const pinia = createPinia();
     const filterStore = useFilterStore(pinia);
     
-    render(Filter, {
+    render(FilterButtons, {
       global: {
         plugins: [pinia]
       }
@@ -60,7 +60,7 @@ describe('Filter', () => {
     const pinia = createPinia();
     const filterStore = useFilterStore(pinia);
     
-    render(Filter, {
+    render(FilterButtons, {
       global: {
         plugins: [pinia]
       }

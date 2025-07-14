@@ -4,7 +4,7 @@ import { BaseButton } from '@/components/BaseButton';
 import { useFilterStore } from '@/stores/useFilterStore';
 
 defineComponent({
-  name: 'Filter',
+  name: 'FilterButtons',
 });
 
 const filterStore = useFilterStore();
@@ -22,20 +22,20 @@ const handleClearFilter = () => {
 
 <template>
   <div class="flex gap-2 mb-4">
-    <BaseButton 
-      @click="handleClearFilter"
+    <base-button 
       :class="{ 'bg-blue-500 text-white': filterStore.selectedCategory === null }"
+      @click="handleClearFilter"
     >
       All
-    </BaseButton>
-    <BaseButton 
+    </base-button>
+    <base-button 
       v-for="category in categories" 
       :key="category"
-      @click="handleCategoryFilter(category)"
       :class="{ 'bg-blue-500 text-white': filterStore.selectedCategory === category }"
+      @click="handleCategoryFilter(category)"
     >
       {{ category }}
-    </BaseButton>
+    </base-button>
   </div>
 </template>
 

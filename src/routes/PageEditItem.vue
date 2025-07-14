@@ -16,6 +16,8 @@ const todoName = ref('');
 const todoCategory = ref('');
 const originalDescription = ref('');
 
+const PENDING_ROUTE = '/list-pending';
+
 onMounted(() => {
   const item = list.find(item => item.id === itemId);
   if (item) {
@@ -29,7 +31,7 @@ onMounted(() => {
     }
     originalDescription.value = description;
   } else {
-    router.push('/list-pending');
+    router.push(PENDING_ROUTE);
   }
 });
 
@@ -47,11 +49,11 @@ const onSubmit = (e: Event) => {
   const description = `[${todoCategory.value}] ${todoName.value.trim()}`;
   editItem(itemId, description);
   showNotification('Todo edited');
-  router.push('/list-pending');
+  router.push(PENDING_ROUTE);
 };
 
 const onCancel = () => {
-  router.push('/list-pending');
+  router.push(PENDING_ROUTE);
 };
 </script>
 
@@ -62,17 +64,17 @@ const onCancel = () => {
       <div class="flex flex-col">
         <label for="todo-name"> Name </label>
         <input 
+          id="todo-name"
           v-model="todoName"
           class="border border-neutral-300 hover:border-neutral-500 rounded p-2" 
-          id="todo-name"
         />
       </div>
       <div class="flex flex-col">
         <label for="todo-category"> Category </label>
         <select
+          id="todo-category"
           v-model="todoCategory"
           class="border border-neutral-300 hover:border-neutral-500 rounded p-2"
-          id="todo-category"
         >
           <option value="">Select a category</option>
           <option value="Health">Health</option>
@@ -81,8 +83,8 @@ const onCancel = () => {
         </select>
       </div>
       <div class="flex gap-2">
-        <BaseButton type="submit">Update</BaseButton>
-        <BaseButton type="button" @click="onCancel">Cancel</BaseButton>
+        <base-button type="submit">Update</base-button>
+        <base-button type="button" @click="onCancel">Cancel</base-button>
       </div>
     </form>
   </base-card>

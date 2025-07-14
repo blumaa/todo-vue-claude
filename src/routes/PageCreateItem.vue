@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 import { BaseCard } from '@/components/BaseCard';
 import { BaseButton } from '@/components/BaseButton';
 import { useTodoListStore } from '@/stores/useTodoListStore';
 import { useNotificationStore } from '@/stores/useNotificationStore';
 
-const router = useRouter();
 const store = useTodoListStore();
 const { showNotification } = useNotificationStore();
 
@@ -39,17 +37,17 @@ const onSubmit = (e: Event) => {
       <div class="flex flex-col">
         <label for="todo-name"> Name </label>
         <input 
+          id="todo-name"
           v-model="todoName"
           class="border border-neutral-300 hover:border-neutral-500 rounded p-2" 
-          id="todo-name"
         />
       </div>
       <div class="flex flex-col">
         <label for="todo-category"> Category </label>
         <select
+          id="todo-category"
           v-model="todoCategory"
           class="border border-neutral-300 hover:border-neutral-500 rounded p-2"
-          id="todo-category"
         >
           <option value="">Select a category</option>
           <option value="Health">Health</option>
@@ -57,7 +55,7 @@ const onSubmit = (e: Event) => {
           <option value="Personal">Personal</option>
         </select>
       </div>
-      <BaseButton type="submit"> Submit </BaseButton>
+      <base-button type="submit"> Submit </base-button>
     </form>
   </base-card>
 </template>

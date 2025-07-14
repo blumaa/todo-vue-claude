@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 
 defineComponent({
-  name: 'Notification',
+  name: 'NotificationPopup',
 });
 
 const props = withDefaults(
