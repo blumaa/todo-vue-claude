@@ -32,7 +32,7 @@ const onSubmit = (e: Event) => {
 </script>
 
 <template>
-  <base-card class="col-start-5 col-span-4 row-start-2 row-span-10">
+  <base-card>
     <form class="flex flex-col gap-4" @submit="onSubmit">
       <div class="flex flex-col">
         <label for="todo-name"> Name </label>

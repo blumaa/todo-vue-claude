@@ -8,6 +8,9 @@ const notificationStore = useNotificationStore();
 
 <template>
   <div class="w-screen h-screen grid grid-cols-12 grid-rows-12 gap-3 bg-neutral-100">
+    <div class="col-span-full row-start-1 flex items-center justify-center bg-blue-600 text-white">
+      <h1 class="text-2xl font-bold">Aaron's Amazing Todo List</h1>
+    </div>
     <the-header />
     <router-view></router-view>
     <notification-popup 
