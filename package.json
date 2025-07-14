@@ -1,0 +1,44 @@
+{
+  "name": "frontend-test",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint 'src/**/*.{js,vue,ts}' --cache",
+    "test": "vitest"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@testing-library/vue": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
+    "@vitejs/plugin-vue": "^5.1.2",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-sonarjs": "^1.0.4",
+    "eslint-plugin-vue": "^9.27.0",
+    "jsdom": "^24.1.1",
+    "prettier": "^3.3.3",
+    "unocss": "^0.62.2",
+    "vite": "^5.4.1",
+    "vitest": "^2.0.5",
+    "vue-eslint-parser": "^9.4.3"
+  },
+  "dependencies": {
+    "@unocss/reset": "^0.62.2",
+    "pinia": "^2.2.2",
+    "typescript": "^5.5.4",
+    "vue": "^3.4.38",
+    "vue-router": "^4.4.3"
+  }
+}
