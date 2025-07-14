@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .eslintcache
+
+# TypeScript build files
+*.js.map
+tsconfig.tsbuildinfo
