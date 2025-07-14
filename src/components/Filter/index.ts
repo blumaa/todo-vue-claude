@@ -1,1 +1,1 @@
-export { default as Filter } from './Filter.vue';
+export { default as FilterButtons } from './Filter.vue';

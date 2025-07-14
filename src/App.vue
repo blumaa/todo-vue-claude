@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TheHeader } from '@/components/TheHeader';
-import { Notification } from '@/components/Notification';
+import { NotificationPopup } from '@/components/Notification';
 import { useNotificationStore } from '@/stores/useNotificationStore';
 
 const notificationStore = useNotificationStore();
@@ -8,9 +8,9 @@ const notificationStore = useNotificationStore();
 
 <template>
   <div class="w-screen h-screen grid grid-cols-12 grid-rows-12 gap-3 bg-neutral-100">
-    <TheHeader />
+    <the-header />
     <router-view></router-view>
-    <Notification 
+    <notification-popup 
       :message="notificationStore.message" 
       :visible="notificationStore.visible" 
       :type="notificationStore.type"

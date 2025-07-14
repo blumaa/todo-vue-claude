@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, defineComponent } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router';
 import { ListItemState } from '@/types';
 import { BaseButton } from '@/components/BaseButton';
 import { useTodoListStore } from '@/stores/useTodoListStore';
@@ -22,16 +22,8 @@ const props = withDefaults(
 );
 
 const router = useRouter();
-const route = useRoute();
 const { toggleComplete, removeItem } = useTodoListStore();
 const { showNotification } = useNotificationStore();
-
-const listItemClasses = computed(() => {
-  return {
-    pending: '',
-    done: 'line-through',
-  }[props.state];
-});
 
 const handleToggleComplete = () => {
   toggleComplete(props.id);

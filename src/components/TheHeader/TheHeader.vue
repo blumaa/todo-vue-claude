@@ -30,20 +30,20 @@ const navigateToDone = () => router.push('/list-done');
     <h3 class="text-lg font-semibold">{{ pageTitle }}</h3>
     <div class="grid auto-flow-col gap-2 justify-end">
       <base-button 
-        @click="navigateToCreate"
         :class="{ 'bg-blue-500 text-white': route.path === '/create' }"
+        @click="navigateToCreate"
       >
         Create
       </base-button>
       <base-button 
-        @click="navigateToPending"
         :class="{ 'bg-blue-500 text-white': route.path === '/list-pending' }"
+        @click="navigateToPending"
       >
         Pending
       </base-button>
       <base-button 
-        @click="navigateToDone"
         :class="{ 'bg-blue-500 text-white': route.path === '/list-done' }"
+        @click="navigateToDone"
       >
         Done
       </base-button>
