@@ -35,14 +35,19 @@ onMounted(() => {
 
 const onSubmit = (e: Event) => {
   e.preventDefault();
-  if (todoName.value.trim()) {
-    const description = todoCategory.value 
-      ? `[${todoCategory.value}] ${todoName.value.trim()}`
-      : todoName.value.trim();
-    editItem(itemId, description);
-    showNotification('Todo edited');
-    router.push('/list-pending');
+  if (!todoName.value.trim()) {
+    showNotification('Please enter a todo name', 'error');
+    return;
   }
+  if (!todoCategory.value) {
+    showNotification('Please select a category', 'error');
+    return;
+  }
+  
+  const description = `[${todoCategory.value}] ${todoName.value.trim()}`;
+  editItem(itemId, description);
+  showNotification('Todo edited');
+  router.push('/list-pending');
 };
 
 const onCancel = () => {
@@ -59,8 +64,7 @@ const onCancel = () => {
         <input 
           v-model="todoName"
           class="border border-neutral-300 hover:border-neutral-500 rounded p-2" 
-          id="todo-name" 
-          required
+          id="todo-name"
         />
       </div>
       <div class="flex flex-col">

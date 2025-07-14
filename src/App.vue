@@ -13,6 +13,7 @@ const notificationStore = useNotificationStore();
     <Notification 
       :message="notificationStore.message" 
       :visible="notificationStore.visible" 
+      :type="notificationStore.type"
     />
   </div>
 </template>
