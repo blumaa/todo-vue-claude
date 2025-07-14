@@ -58,7 +58,7 @@ const onCancel = () => {
 </script>
 
 <template>
-  <base-card class="col-start-5 col-span-4 row-start-2 row-span-10">
+  <base-card>
     <h2 class="text-xl font-bold mb-4">Edit Item</h2>
     <form class="flex flex-col gap-4" @submit="onSubmit">
       <div class="flex flex-col">

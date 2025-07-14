@@ -26,7 +26,7 @@ const navigateToDone = () => router.push('/list-done');
 </script>
 
 <template>
-  <base-card class="col-span-full grid auto-flow-col items-center">
+  <base-card variant="header" class="grid auto-flow-col items-center">
     <h3 class="text-lg font-semibold">{{ pageTitle }}</h3>
     <div class="grid auto-flow-col gap-2 justify-end">
       <base-button 

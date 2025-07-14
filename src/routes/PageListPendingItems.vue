@@ -13,7 +13,7 @@ const hasItems = computed(() => {
 </script>
 
 <template>
-  <base-card class="col-start-5 col-span-4 row-start-2 row-span-10">
+  <base-card>
     <filter-buttons />
     
     <div v-if="!hasItems">No pending Items</div>
