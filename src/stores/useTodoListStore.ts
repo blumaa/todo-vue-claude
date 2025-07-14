@@ -1,12 +1,35 @@
 import { reactive, computed } from 'vue';
 import { defineStore } from 'pinia';
 import { ListItem, ListItemState } from '@/types';
+import { useFilterStore } from './useFilterStore';
 
 export const useTodoListStore = defineStore('TodoList', () => {
   const list: ListItem[] = reactive([]);
 
-  const pendingItems = computed(() => list.filter(item => item.state === 'pending'));
-  const completedItems = computed(() => list.filter(item => item.state === 'done'));
+  const extractCategory = (description: string): string | null => {
+    const match = description.match(/^\[([^\]]+)\]/);
+    return match ? match[1] : null;
+  };
+
+  const filterByCategory = (items: ListItem[], selectedCategory: string | null): ListItem[] => {
+    if (!selectedCategory) return items;
+    return items.filter(item => {
+      const category = extractCategory(item.description);
+      return category === selectedCategory;
+    });
+  };
+
+  const pendingItems = computed(() => {
+    const filterStore = useFilterStore();
+    const pending = list.filter(item => item.state === 'pending');
+    return filterByCategory(pending, filterStore.selectedCategory);
+  });
+  
+  const completedItems = computed(() => {
+    const filterStore = useFilterStore();
+    const completed = list.filter(item => item.state === 'done');
+    return filterByCategory(completed, filterStore.selectedCategory);
+  });
 
   const addItem = (description: string) => {
     const newItem: ListItem = {
