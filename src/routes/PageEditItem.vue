@@ -61,20 +61,20 @@ const onCancel = () => {
   <base-card>
     <h2 class="text-xl font-bold mb-4">Edit Item</h2>
     <form class="flex flex-col gap-4" @submit="onSubmit">
-      <div class="flex flex-col">
-        <label for="todo-name"> Name </label>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+        <label for="todo-name" class="sm:w-24 sm:text-right"> Name </label>
         <input 
           id="todo-name"
           v-model="todoName"
-          class="border border-neutral-300 hover:border-neutral-500 rounded p-2" 
+          class="flex-1 border border-neutral-300 hover:border-neutral-500 rounded p-2" 
         />
       </div>
-      <div class="flex flex-col">
-        <label for="todo-category"> Category </label>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+        <label for="todo-category" class="sm:w-24 sm:text-right"> Category </label>
         <select
           id="todo-category"
           v-model="todoCategory"
-          class="border border-neutral-300 hover:border-neutral-500 rounded p-2"
+          class="flex-1 border border-neutral-300 hover:border-neutral-500 rounded p-2"
         >
           <option value="">Select a category</option>
           <option value="Health">Health</option>
@@ -82,9 +82,9 @@ const onCancel = () => {
           <option value="Personal">Personal</option>
         </select>
       </div>
-      <div class="flex gap-2">
-        <base-button type="submit">Update</base-button>
-        <base-button type="button" @click="onCancel">Cancel</base-button>
+      <div class="flex flex-col sm:flex-row gap-2 sm:justify-center">
+        <base-button type="submit" class="w-full sm:w-auto">Update</base-button>
+        <base-button type="button" class="w-full sm:w-auto" @click="onCancel">Cancel</base-button>
       </div>
     </form>
   </base-card>

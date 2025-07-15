@@ -26,9 +26,9 @@ const navigateToDone = () => router.push('/list-done');
 </script>
 
 <template>
-  <base-card variant="header" class="grid auto-flow-col items-center">
+  <base-card variant="header" class="flex items-center justify-between">
     <h3 class="text-lg font-semibold">{{ pageTitle }}</h3>
-    <div class="grid auto-flow-col gap-2 justify-end">
+    <div class="flex gap-2 flex-wrap sm:flex-nowrap">
       <base-button 
         :class="{ 'bg-blue-500 text-white': route.path === '/create' }"
         @click="navigateToCreate"

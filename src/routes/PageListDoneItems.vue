@@ -16,7 +16,7 @@ const hasItems = computed(() => {
   <base-card>
     <filter-buttons />
     
-    <div v-if="!hasItems">No completed Items</div>
+    <div v-if="!hasItems" class="text-center text-neutral-500 py-8">No completed Items</div>
 
     <ul v-else class="flex flex-col gap-3">
       <list-item 
