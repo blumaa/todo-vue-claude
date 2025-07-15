@@ -7,20 +7,22 @@ const routes = [
     redirect: '/list-pending',
     children: [
       {
-        path: 'list-pending',
+        path: '/list-pending',
         component: () => import('./PageListPendingItems.vue'),
       },
       {
-        path: 'list-done',
+        path: '/list-done',
         component: () => import('./PageListDoneItems.vue'),
       },
       {
-        path: 'create',
+        path: '/create',
+        // TODO: Create page to make new items
         component: () => import('./PageCreateItem.vue'),
       },
       {
-        path: 'edit/:id',
-        component: () => import('./PageEditItem.vue'),
+        path: '/edit/:id',
+        // TODO: Create page to edit items
+        // component: () => import('./*.vue')
       },
     ],
   },

@@ -3,29 +3,21 @@ import { computed } from 'vue';
 import { BaseCard } from '@/components/BaseCard';
 import { useTodoListStore } from '@/stores/useTodoListStore';
 import { ListItem } from '@/components/ListItem';
-import { FilterButtons } from '@/components/Filter';
 
-const store = useTodoListStore();
+const { list } = useTodoListStore();
 
 const hasItems = computed(() => {
-  return !!store.pendingItems.length;
+  return !!list.length;
 });
 </script>
 
 <template>
-  <base-card>
-    <filter-buttons />
-    
+  <base-card class="col-start-5 col-span-4 row-start-2 row-span-10">
     <div v-if="!hasItems">No pending Items</div>
 
-    <ul v-else class="flex flex-col gap-3">
-      <list-item 
-        v-for="item in store.pendingItems" 
-        :id="item.id"
-        :key="item.id"
-        :description="item.description" 
-        :state="item.state"
-      />
+    <ul class="flex flex-col gap-3">
+      <list-item description="Make the Todo list work" />
+      <list-item description="Make the ListItem Component" state="done" />
     </ul>
   </base-card>
 </template>
