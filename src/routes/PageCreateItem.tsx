@@ -37,6 +37,7 @@ export const PageCreateItem = () => {
             className="border border-neutral-300 hover:border-neutral-500 rounded"
             id="todo-name"
             name="todo-name"
+            required
           />
         </div>
         <div className="flex flex-col">
@@ -45,6 +46,7 @@ export const PageCreateItem = () => {
             className="border border-neutral-300 hover:border-neutral-500 rounded"
             id="todo-category"
             name="todo-category"
+            required
           >
             <option value={CategoryType.Health}>Health</option>
             <option value={CategoryType.Work}>Work</option>
