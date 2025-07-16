@@ -6,7 +6,8 @@ import { type RootState } from "../stores";
 import type { ListItem as ListItemType } from "@/types";
 
 export const PageListPendingItems = () => {
-  const { todos }= useSelector((state: RootState) => state.todoList);
+  // Select the todos from the Redux store and filter for pending items
+  const todos = useSelector((state: RootState) => state.todoList.todos.filter((todo => todo.state === "pending")));
 
   const hasItems = useMemo(() => {
     return !!todos.length;
@@ -18,7 +19,6 @@ export const PageListPendingItems = () => {
 
       <ul className="flex flex-col gap-3">
         {todos
-          .filter((todo: ListItemType) => todo.state === "pending")
           .map((todo: ListItemType) => (
             <ListItem
               key={todo.id}

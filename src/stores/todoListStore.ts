@@ -17,11 +17,12 @@ export const todoListSlice = createSlice({
   name: "todoList",
   initialState,
   reducers: {
-    // Add reducers as needed
+    addTodo: (state, action) => {
+      state.todos.push(action.payload);
+    },
   },
 });
 
 // Export actions when they are added
-// export const { } = todoListSlice.actions;
+export const { addTodo } = todoListSlice.actions;
 export default todoListSlice.reducer;
-

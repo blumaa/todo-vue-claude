@@ -1,25 +1,54 @@
-import { BaseCard } from '../components/BaseCard';
-import { BaseButton } from '../components/BaseButton';
+import { BaseCard } from "../components/BaseCard";
+import { BaseButton } from "../components/BaseButton";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../stores/todoListStore";
+import { CategoryType } from "@/types";
 
 export const PageCreateItem = () => {
-  const onSubmit = () => {};
+  const dispatch = useDispatch();
+  const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+    //add todo to the redux store
+    evt.preventDefault();
+    console.log("evt", evt.target);
+
+    const formData = new FormData(evt.currentTarget);
+    const name = formData.get("todo-name") as string;
+    const category = formData.get("todo-category") as CategoryType;
+
+    if (name.trim()) {
+      dispatch(
+        addTodo({
+          id: crypto.randomUUID(),
+          description: name,
+          category,
+          state: "pending",
+        }),
+      );
+      evt.currentTarget.reset();
+    }
+  };
 
   return (
     <BaseCard className="col-start-5 col-span-4 row-start-2 row-span-10">
       <form className="flex flex-col gap-4" onSubmit={onSubmit}>
         <div className="flex flex-col">
           <label htmlFor="todo-name"> Name </label>
-          <input className="border border-neutral-300 hover:border-neutral-500 rounded" id="todo-name" />
+          <input
+            className="border border-neutral-300 hover:border-neutral-500 rounded"
+            id="todo-name"
+            name="todo-name"
+          />
         </div>
         <div className="flex flex-col">
           <label htmlFor="todo-category"> Category </label>
           <select
             className="border border-neutral-300 hover:border-neutral-500 rounded"
             id="todo-category"
+            name="todo-category"
           >
-            <option value="Health">Health</option>
-            <option value="Work">Work</option>
-            <option value="Personal">Personal</option>
+            <option value={CategoryType.Health}>Health</option>
+            <option value={CategoryType.Work}>Work</option>
+            <option value={CategoryType.Personal}>Personal</option>
           </select>
         </div>
         <BaseButton type="submit"> Submit </BaseButton>
