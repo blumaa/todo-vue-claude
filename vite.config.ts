@@ -1,14 +1,13 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import UnoCSS from 'unocss/vite'
 
-import vue from '@vitejs/plugin-vue';
-import UnoCSS from 'unocss/vite';
-
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [UnoCSS(), vue()],
+  plugins: [UnoCSS(), react()],
   resolve: {
-    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
-
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
     alias: {
       '@': '/src',
     },
@@ -25,4 +24,4 @@ export default defineConfig({
       '@': '/src',
     },
   },
-});
+})

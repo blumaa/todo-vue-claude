@@ -1,36 +1,28 @@
-import tsParser from '@typescript-eslint/parser';
-import js from '@eslint/js';
-import sonarJs from 'eslint-plugin-sonarjs';
-import pluginVue from 'eslint-plugin-vue';
-import vueParser from 'vue-eslint-parser';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
 
-export default [
-  js.configs.recommended,
-  sonarJs.configs.recommended,
-  ...pluginVue.configs['flat/essential'],
-  ...pluginVue.configs['flat/strongly-recommended'],
-  ...pluginVue.configs['flat/recommended'],
-  eslintConfigPrettier,
+export default tseslint.config(
+  { ignores: ['dist'] },
   {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      parser: vueParser,
-      globals: {
-        node: true,
-      },
-      parserOptions: {
-        ecmaVersion: 2020,
-        parser: tsParser,
-      },
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
     },
     rules: {
-      'vue/component-name-in-template-casing': ['error', 'kebab-case'],
-      'vue/component-tags-order': [
-        'error',
-        {
-          order: ['script', 'template', 'style'],
-        },
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
       ],
     },
   },
-];
+)

@@ -38,8 +38,8 @@ Ensure you have [pnpm](https://pnpm.io/) installed as it is the package manager 
 The project is built with the following technologies:
 
 - **Language:** TypeScript
-- **Framework:** Vue 3
-- **State Management:** Pinia
+- **Framework:** React 18
+- **State Management:** Redux Toolkit
 - **Build Tool:** Vite
 - **CSS Framework:** Unocss
 - **Linter:** ESLint
@@ -48,7 +48,7 @@ The project is built with the following technologies:
 ### Testing Tools
 
 - **Test Runner:** Vitest
-- **Component Testing:** Testing Library for Vue
+- **Component Testing:** Testing Library for React
 - **User Event Simulation:** Testing Library User Events
 
 ## Challenge Overview
@@ -81,4 +81,4 @@ You will have **40 minutes** to complete the challenge. Your goal is to implemen
 
 ### Final Note
 
-The main goal of this challenge is to see how well we can collaborate during a pair programming session. It’s an opportunity for us to explore how you approach problem-solving and coding in real-time. We’re excited to work with you and wish you the best of luck!
+The main goal of this challenge is to see how well we can collaborate during a pair programming session. It's an opportunity for us to explore how you approach problem-solving and coding in real-time. We're excited to work with you and wish you the best of luck!
