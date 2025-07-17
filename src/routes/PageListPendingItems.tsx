@@ -4,17 +4,10 @@ import { BaseCard } from "../components/BaseCard";
 import { ListItem } from "../components/ListItem";
 import { selectPendingTodos } from "../selectors/todoSelectors";
 import type { ListItem as ListItemType } from "@/types";
-import { useDispatch } from "react-redux";
-import { completeTodo } from "../stores/todoListStore";
 
 export const PageListPendingItems = () => {
   // Use memoized selector to prevent unnecessary re-renders
   const todos = useSelector(selectPendingTodos);
-  const dispatch = useDispatch();
-
-  const handleCompleteTodo = (id: string) => {
-    dispatch(completeTodo({ id }));
-  };
 
   const hasItems = useMemo(() => {
     return !!todos.length;
@@ -28,10 +21,10 @@ export const PageListPendingItems = () => {
         {todos.map((todo: ListItemType) => (
           <ListItem
             key={todo.id}
+            id={todo.id}
             description={todo.description}
             category={todo.category}
             state={todo.state}
-            handleComplete={() => handleCompleteTodo(todo.id)}
           />
         ))}
       </ul>

@@ -22,9 +22,12 @@ export const todoListSlice = createSlice({
     completeTodo: (state, action) => {
       state.todos.find((todo) => todo.id === action.payload.id)!.state = "done";
     },
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
+    },
   },
 });
 
 // Export actions when they are added
-export const { addTodo, completeTodo, inCompleteTodo } = todoListSlice.actions;
+export const { addTodo, completeTodo, inCompleteTodo, removeTodo } = todoListSlice.actions;
 export default todoListSlice.reducer;

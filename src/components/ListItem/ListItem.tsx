@@ -1,22 +1,35 @@
 import { useMemo } from "react";
 import { type ListItemState } from "../../types";
 import { BaseButton } from "../BaseButton";
+import { useDispatch } from "react-redux";
+import { completeTodo, inCompleteTodo, removeTodo } from "../../stores/todoListStore";
 
 interface ListItemProps {
+  id: string;
   description: string;
   category: string;
   state?: ListItemState;
-  handleComplete?: () => void;
-  handleIncomplete?: () => void;
 }
 
 export const ListItem = ({
+  id,
   description,
   category,
   state = "pending",
-  handleComplete,
-  handleIncomplete,
 }: ListItemProps) => {
+  const dispatch = useDispatch();
+
+  const handleCompleteTodo = () => {
+    dispatch(completeTodo({ id }));
+  };
+
+  const handleIncompleteTodo = () => {
+    dispatch(inCompleteTodo({ id }));
+  };
+
+  const handleRemoveTodo = () => {
+    dispatch(removeTodo({ id }));
+  };
 
   const listItemClasses = useMemo(() => {
     return {
@@ -36,14 +49,14 @@ export const ListItem = ({
       </div>
       <div className="flex flex-col gap-1">
         {state === "done" ? (
-          <BaseButton onClick={handleIncomplete}>
+          <BaseButton onClick={handleIncompleteTodo}>
             Mark as Not Done
           </BaseButton>
         ) : (
-          <BaseButton onClick={handleComplete}>Complete</BaseButton>
+          <BaseButton onClick={handleCompleteTodo}>Complete</BaseButton>
         )}
         <BaseButton>Edit</BaseButton>
-        <BaseButton>Remove</BaseButton>
+        <BaseButton onClick={handleRemoveTodo}>Remove</BaseButton>
       </div>
     </li>
   );
