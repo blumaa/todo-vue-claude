@@ -1,4 +1,5 @@
 import { BaseCard } from "../BaseCard";
+import { BaseButton } from "../BaseButton";
 import { Link, useLocation } from "react-router-dom";
 
 export const TheHeader = () => {
@@ -21,16 +22,18 @@ export const TheHeader = () => {
 
   return (
     <BaseCard className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-3">
-      <h3 className="text-lg font-semibold">{getPageName(location.pathname)}</h3>
+      <h3 className="text-lg font-semibold">
+        {getPageName(location.pathname)}
+      </h3>
       <div className="flex gap-2">
         <Link to="/create" className="btn">
-          Create
+          <BaseButton>Create</BaseButton>
         </Link>
         <Link to="/list-pending" className="btn">
-          Pending
+          <BaseButton>Pending</BaseButton>
         </Link>
         <Link to="/list-done" className="btn">
-          Done
+          <BaseButton>Done</BaseButton>
         </Link>
       </div>
     </BaseCard>

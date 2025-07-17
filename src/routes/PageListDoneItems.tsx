@@ -4,9 +4,16 @@ import { useSelector } from "react-redux";
 import { ListItem } from "../components/ListItem";
 import { selectDoneTodos } from "../selectors/todoSelectors";
 import type { ListItem as ListItemType } from "@/types";
+import { useDispatch } from "react-redux";
+import { inCompleteTodo } from "../stores/todoListStore";
 
 export const PageListDoneItems = () => {
   const todos = useSelector(selectDoneTodos);
+  const dispatch = useDispatch();
+
+  const handleIncompleteTodo = (id: string) => {
+    dispatch(inCompleteTodo({ id }));
+  };
 
   const hasItems = useMemo(() => {
     return !!todos.length;
@@ -24,6 +31,7 @@ export const PageListDoneItems = () => {
               description={todo.description}
               category={todo.category}
               state={todo.state}
+              handleIncomplete={() => handleIncompleteTodo(todo.id)}
             />
           ))}
       </ul>
