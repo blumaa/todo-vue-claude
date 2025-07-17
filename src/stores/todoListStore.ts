@@ -6,11 +6,7 @@ interface TodoListState {
 }
 
 const initialState: TodoListState = {
-  todos: [
-    { id: "1", description: "todo 1", state: "pending" },
-    { id: "2", description: "todo 2", state: "done" },
-    { id: "3", description: "todo 3", state: "pending" },
-  ],
+  todos: [],
 };
 
 export const todoListSlice = createSlice({

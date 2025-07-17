@@ -1,17 +1,23 @@
+import { useMemo } from "react";
 import { BaseCard } from '../components/BaseCard';
 import { useSelector } from "react-redux";
-import { type RootState } from "../stores";
 import { ListItem } from "../components/ListItem";
+import { selectDoneTodos } from "../selectors/todoSelectors";
 import type { ListItem as ListItemType } from "@/types";
 
 export const PageListDoneItems = () => {
-  const { todos }= useSelector((state: RootState) => state.todoList);
+  const todos = useSelector(selectDoneTodos);
+
+  const hasItems = useMemo(() => {
+    return !!todos.length;
+  }, [todos.length]);
 
   return (
-    <BaseCard className="col-start-5 col-span-4 row-start-2">
+    <BaseCard className="flex-1 max-w-2xl mx-auto">
+      {!hasItems && <div>No Completed Items. Get to work!</div>}
+
       <ul className="flex flex-col gap-3">
         {todos
-          .filter((todo: ListItemType) => todo.state === "done")
           .map((todo: ListItemType) => (
             <ListItem
               key={todo.id}

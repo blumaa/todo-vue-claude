@@ -29,7 +29,7 @@ export const PageCreateItem = () => {
   };
 
   return (
-    <BaseCard className="col-start-5 col-span-4 row-start-2 row-span-10">
+    <BaseCard className="flex-1 max-w-md mx-auto">
       <form className="flex flex-col gap-4" onSubmit={onSubmit}>
         <div className="flex flex-col">
           <label htmlFor="todo-name"> Name </label>

@@ -3,7 +3,7 @@ import { router } from './routes';
 
 function App() {
   return (
-    <div className="w-screen h-screen grid cols-12 rows-12 gap-3 bg-neutral-100">
+    <div className="w-screen h-screen flex flex-col gap-3 bg-neutral-100 p-3">
       <RouterProvider router={router} />
     </div>
   );

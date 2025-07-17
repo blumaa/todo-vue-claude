@@ -20,9 +20,9 @@ export const TheHeader = () => {
   };
 
   return (
-    <BaseCard className="col-span-full grid auto-flow-col items-center">
-      <h3>{getPageName(location.pathname)}</h3>
-      <div className="grid auto-flow-col gap-2 justify-end">
+    <BaseCard className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-3">
+      <h3 className="text-lg font-semibold">{getPageName(location.pathname)}</h3>
+      <div className="flex gap-2">
         <Link to="/create" className="btn">
           Create
         </Link>
