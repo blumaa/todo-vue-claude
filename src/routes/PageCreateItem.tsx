@@ -3,13 +3,15 @@ import { BaseButton } from "../components/BaseButton";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../stores/todoListStore";
 import { CategoryType } from "@/types";
+import { useNavigate } from "react-router-dom";
 
 export const PageCreateItem = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     //add todo to the redux store
     evt.preventDefault();
-    console.log("evt", evt.target);
 
     const formData = new FormData(evt.currentTarget);
     const name = formData.get("todo-name") as string;
@@ -26,10 +28,11 @@ export const PageCreateItem = () => {
       );
       evt.currentTarget.reset();
     }
+    navigate("/list-pending");
   };
 
   return (
-    <BaseCard className="flex-1 max-w-md mx-auto">
+    <BaseCard className="flex-1 min-w-md mx-auto">
       <form className="flex flex-col gap-4" onSubmit={onSubmit}>
         <div className="flex flex-col">
           <label htmlFor="todo-name"> Name </label>

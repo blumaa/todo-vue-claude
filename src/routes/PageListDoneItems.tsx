@@ -13,7 +13,7 @@ export const PageListDoneItems = () => {
   }, [todos.length]);
 
   return (
-    <BaseCard className="flex-1 max-w-2xl mx-auto">
+    <BaseCard className="flex-1 min-w-md mx-auto">
       {!hasItems && <div>No Completed Items. Get to work!</div>}
 
       <ul className="flex flex-col gap-3">
@@ -22,6 +22,7 @@ export const PageListDoneItems = () => {
             <ListItem
               key={todo.id}
               description={todo.description}
+              category={todo.category}
               state={todo.state}
             />
           ))}
