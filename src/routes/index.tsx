@@ -3,6 +3,7 @@ import { TheHeader } from "../components/TheHeader";
 import { PageListPendingItems } from "./PageListPendingItems";
 import { PageListDoneItems } from "./PageListDoneItems";
 import { PageCreateItem } from "./PageCreateItem";
+import { PageEditItem } from "./PageEditItem";
 
 const Layout = () => (
   <>
@@ -34,7 +35,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "edit/:id",
-        element: <div>Edit page not implemented</div>,
+        element: <PageEditItem />,
       },
     ],
   },

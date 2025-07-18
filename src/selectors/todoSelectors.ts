@@ -18,6 +18,6 @@ export const selectDoneTodos = createSelector(
 
 // Memoized selector to get todo by id
 export const selectTodoById = createSelector(
-  [selectAllTodos, (state: RootState, todoId: string) => todoId],
+  [selectAllTodos, (_state: RootState, todoId: string) => todoId],
   (todos, todoId) => todos.find(todo => todo.id === todoId)
 );

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { type ListItemState } from "../../types";
 import { BaseButton } from "../BaseButton";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { completeTodo, inCompleteTodo, removeTodo } from "../../stores/todoListStore";
 
 interface ListItemProps {
@@ -55,7 +56,9 @@ export const ListItem = ({
         ) : (
           <BaseButton onClick={handleCompleteTodo}>Complete</BaseButton>
         )}
-        <BaseButton>Edit</BaseButton>
+        <Link to={`/edit/${id}`}>
+          <BaseButton>Edit</BaseButton>
+        </Link>
         <BaseButton onClick={handleRemoveTodo}>Remove</BaseButton>
       </div>
     </li>
