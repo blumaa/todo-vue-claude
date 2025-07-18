@@ -16,6 +16,7 @@ export default defineConfig({
     retry: 3,
     globals: true,
     environment: 'jsdom',
+    setupFiles: ['./src/__tests__/setup.ts'],
     include: [
       '**/__tests__/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
       '**/__tests__/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
