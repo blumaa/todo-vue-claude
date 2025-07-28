@@ -1,5 +1,3 @@
-# Aleph Alpha Frontend Challenge
-
 ## Getting Started
 
 ### Prerequisites
@@ -9,11 +7,6 @@ Ensure you have [pnpm](https://pnpm.io/) installed as it is the package manager 
 ### Project Setup
 
 1. **Unzip the Package and Navigate to the Project Directory:**
-
-
-   ```bash
-    cd aleph-alpha-frontend-challenge
-    ```
 
 2. **Install Dependencies:**
 
